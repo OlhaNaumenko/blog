@@ -1,0 +1,38 @@
+﻿@using Blog.Models.ViewModels;
+@model NewPostViewModel;
+
+<link href="~/lib/froala-editor/css/froala_editor.min.css" rel="stylesheet" />
+
+<form method="post" asp-controller="Admin" asp-action="CreatePost">
+    <div class="mb-3">
+        <label for="name" class="form-label">Назва статті</label>
+        <input type="text" class="form-control" id="name" asp-for="Name">        
+    </div>
+    <div class="mb-3">
+        <label for="name" class="form-label">Автор</label>
+        <input type="text" class="form-control" id="name" asp-for="Author">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Текст статті</label>
+        <textarea id="description" asp-for="Description"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="shortDescription" class="form-label">Короткий опис статті</label>
+        <textarea id="shortDescription" asp-for="ShortDescription"></textarea>
+    </div>
+    <div class="mb-3">
+        <input type="checkbox" class="form-check-input" id="isVisible" value="true" asp-for="IsVisible">
+        <label class="form-check-label" for="isVisible">Опублікувати статтю</label>
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Відправити</button>
+    </div>
+        
+</form>
+
+<script src="~/lib/froala-editor/js/froala_editor.min.js"></script>
+<script>
+    var description = new FroalaEditor('#description');
+    var shortDescription = new FroalaEditor('#shortDescription');
+</script>
+
